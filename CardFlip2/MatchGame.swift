@@ -5,6 +5,7 @@
 //  Created by Joel Hollingsworth on 9/26/16.
 //  Copyright © 2016 Joel Hollingsworth. All rights reserved.
 //
+//  Tyler Young
 
 import UIKit
 
@@ -45,6 +46,7 @@ class MatchGame {
             // flip up
             matrix[which].isShowing = true
             
+            //enumerated type with 3 states(non selectable)  //inactive(alpha value)
             // update values/text
             flips += 1
             score -= 1
@@ -58,13 +60,18 @@ class MatchGame {
                     matrix[which].isShowing = true
                     score += 5
                     message = "Suit match!"
-                }else{
+                    previous = -1
+                    previousSuit = matrix[which].suit
+                }else {
                     matrix[previous].isShowing = false
+                    previous = which
+                    previousSuit = matrix[which].suit
+                }
+                
+            } else {
+                previous = which
+                previousSuit = matrix[which].suit
             }
-            
-        }
-            previous = which
-            previousSuit = matrix[which].suit
         }
     }
     

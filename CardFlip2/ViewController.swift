@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var card4_2: UIImageView!
     @IBOutlet weak var card4_3: UIImageView!
     @IBOutlet weak var card4_4: UIImageView!
+    @IBOutlet weak var playAgainButton: UIButton!
+    
 
     // create the Model
     var matchGame = MatchGame()
@@ -79,5 +81,9 @@ class ViewController: UIViewController {
             messageAreaLabel.text = matchGame.message
             
         }
+    }
+    
+    @IBAction func playAgain(_ sender: UITapGestureRecognizer) {
+        matchGame = MatchGame()
     }
 }

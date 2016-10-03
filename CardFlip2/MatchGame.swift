@@ -62,15 +62,25 @@ class MatchGame {
                     message = "Suit match!"
                     previous = -1
                     previousSuit = matrix[which].suit
-                }else {
+                } else if (previousValue == whichValue) {
+                    matrix[previous].isShowing = true
+                    matrix[which].isShowing = true
+                    score += 17
+                    message = "Value match!"
+                    previous = -1
+                    previousValue = matrix[which].value
+                }
+                else {
                     matrix[previous].isShowing = false
                     previous = which
                     previousSuit = matrix[which].suit
+                    previousValue = matrix[which].value
                 }
                 
             } else {
                 previous = which
                 previousSuit = matrix[which].suit
+                previousValue = matrix[which].value
             }
         }
     }
